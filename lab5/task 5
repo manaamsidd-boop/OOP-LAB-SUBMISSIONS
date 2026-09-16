@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+class Policy
+{
+private:
+    const int policyNumber;
+    string holderName;
+    double premiumAmount;
+    static int totalPolicies;
+public:
+    Policy(int pn) : policyNumber(pn)
+    {
+        premiumAmount = 0;
+        totalPolicies++;
+    }
+    void setHolder(string h)
+    {
+        holderName = h;
+    }
+    void setPremium(double p)
+    {
+        premiumAmount = p;
+    }
+    void showDetails() const
+    {
+        cout << "Policy No: " << policyNumber << " | Holder: " << holderName << " | Premium: " << premiumAmount << endl;
+    }
+    static int getTotalPolicies()
+    {
+        return totalPolicies;
+    }
+    ~Policy()
+    {
+        cout << "Policy " << policyNumber << " closed." << endl;
+    }
+};
+int Policy::totalPolicies = 0;
+
+int main()
+{
+    Policy pol(9001);
+    pol.setHolder("Sana Tariq");
+    pol.setPremium(15000.75);
+    pol.showDetails();
+    cout << "Total Policies: " << Policy::getTotalPolicies() << endl;
+    return 0;
+}
