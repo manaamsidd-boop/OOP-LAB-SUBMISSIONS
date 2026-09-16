@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+ 
+class Flight
+{
+private:
+    const int flightNumber;
+    static string airlineName;
+    static int totalFlights;
+public:
+    Flight(int fn) : flightNumber(fn)
+    {
+        totalFlights++;
+    }
+    void showDetails() const
+    {
+        cout << "Airline: " << airlineName << " | Flight No: " << flightNumber << endl;
+    }
+    static int getTotalFlights()
+    {
+        return totalFlights;
+    }
+    ~Flight()
+    {
+        cout << "Flight record " << flightNumber << " removed from system." << endl;
+    }
+};
+string Flight::airlineName = "SkyWings Airlines";
+int Flight::totalFlights = 0;
