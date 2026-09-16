@@ -1,4 +1,4 @@
-include <iostream>
+#include <iostream>
 using namespace std;
 
 class Reservation
@@ -32,3 +32,12 @@ public:
 };
 string Reservation::hotelName = "Grand Palace Hotel";
 int Reservation::totalReservations = 0;
+
+int main()
+{
+    Reservation rsv(305);
+    rsv.setGuest("Hassan Raza");
+    rsv.showDetails();
+    cout << "Total reservations: " << Reservation::getTotalReservations() << endl;
+    return 0;
+}
