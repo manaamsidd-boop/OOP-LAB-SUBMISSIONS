@@ -35,3 +35,13 @@ public:
     }
 };
 int Product::warehouseCapacity = 10000;
+
+int main()
+{
+    Product prd(2201);
+    prd.setName("Steel Rods");
+    prd.setQuantity(500);
+    prd.showDetails();
+    cout << "Warehouse Capacity: " << Product::getCapacity() << endl;
+    return 0;
+}
