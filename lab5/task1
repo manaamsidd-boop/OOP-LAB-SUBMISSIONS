@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
- 
+
 class Flight
 {
 private:
@@ -27,3 +27,13 @@ public:
 };
 string Flight::airlineName = "SkyWings Airlines";
 int Flight::totalFlights = 0;
+
+int main()
+{
+    Flight fl1(101);
+    Flight fl2(102);
+    fl1.showDetails();
+    fl2.showDetails();
+    cout << "Total flights: " << Flight::getTotalFlights() << endl;
+    return 0;
+}
