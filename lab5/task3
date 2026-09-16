@@ -1,0 +1,39 @@
+include <iostream>
+using namespace std;
+
+class Member
+{
+private:
+    const int membershipID;
+    string memberName;
+    string contactNo;
+    static string gymName;
+    static int totalMembers;
+public:
+    Member(int id) : membershipID(id)
+    {
+        totalMembers++;
+    }
+    void setName(string n)
+    {
+        memberName = n;
+    }
+    void setContact(string c)
+    {
+        contactNo = c;
+    }
+    void showDetails() const
+    {
+        cout << "Gym: " << gymName << " | ID: " << membershipID << " | Name: " << memberName << " | Contact: " << contactNo << endl;
+    }
+    static string getGymName()
+    {
+        return gymName;
+    }
+    static int getTotalMembers()
+    {
+        return totalMembers;
+    }
+};
+string Member::gymName = "PowerFit Gym";
+int Member::totalMembers = 0;
