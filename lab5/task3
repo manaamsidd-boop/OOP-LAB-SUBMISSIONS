@@ -1,4 +1,4 @@
-include <iostream>
+#include <iostream>
 using namespace std;
 
 class Member
@@ -37,3 +37,14 @@ public:
 };
 string Member::gymName = "PowerFit Gym";
 int Member::totalMembers = 0;
+
+int main()
+{
+    Member mem(7);
+    mem.setName("Bilal Ahmed");
+    mem.setContact("0301-1234567");
+    mem.showDetails();
+    cout << "Gym Name: " << Member::getGymName() << endl;
+    cout << "Total Members: " << Member::getTotalMembers() << endl;
+    return 0;
+}
