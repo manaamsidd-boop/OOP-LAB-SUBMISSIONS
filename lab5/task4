@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+class Product
+{
+private:
+    const int productCode;
+    string productName;
+    int quantity;
+    static int warehouseCapacity;
+public:
+    Product(int pc) : productCode(pc)
+    {
+        quantity = 0;
+    }
+    void setName(string n)
+    {
+        productName = n;
+    }
+    void setQuantity(int q)
+    {
+        quantity = q;
+    }
+    static int getCapacity()
+    {
+        return warehouseCapacity;
+    }
+    void showDetails() const
+    {
+        cout << "Code: " << productCode << " | Name: " << productName << " | Qty: " << quantity << endl;
+    }
+    ~Product()
+    {
+        cout << "Product " << productCode << " removed from inventory." << endl;
+    }
+};
+int Product::warehouseCapacity = 10000;
