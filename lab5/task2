@@ -1,0 +1,34 @@
+include <iostream>
+using namespace std;
+
+class Reservation
+{
+private:
+    const int roomNumber;
+    string guestName;
+    static string hotelName;
+    static int totalReservations;
+public:
+    Reservation(int rm) : roomNumber(rm)
+    {
+        totalReservations++;
+    }
+    void setGuest(string g)
+    {
+        guestName = g;
+    }
+    void showDetails() const
+    {
+        cout << "Hotel: " << hotelName << " | Room: " << roomNumber << " | Guest: " << guestName << endl;
+    }
+    static int getTotalReservations()
+    {
+        return totalReservations;
+    }
+    ~Reservation()
+    {
+        cout << "Reservation for room " << roomNumber << " cancelled." << endl;
+    }
+};
+string Reservation::hotelName = "Grand Palace Hotel";
+int Reservation::totalReservations = 0;
